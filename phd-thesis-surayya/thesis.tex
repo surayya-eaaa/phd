@@ -1,0 +1,106 @@
+\documentclass[11pt,a4paper,twoside,openright,oldfontcommands]{memoir}
+% use 'final' to produce the camera ready version.
+% use 'draft' to produce line overflows etc.
+
+% README:
+%
+% This thesis template uses the memoir document class. Memoir is a great
+% class with lots of nice features. Please read the memoir manual and
+% familiarize yourself with its basics.
+%
+% For example, use the \Sref (section ref), \fref (figure ref)
+% etc. to reference labels. This will yield uniform naming.
+%
+% Also, use \includeonly to selectively include only parts of the thesis.
+% \includeonly{cover,frontmatter,intro,paper1}
+% \includeonly{paper1}
+
+% The natbib package offers a nice set of citation tools.
+% Use \citep for parenthesized citations and \citet for inlined citations, ie, Author [X].
+% See the natbib manual for more options and styles.
+\usepackage[numbers,square,sort&compress]{natbib}
+
+% Use American hyphenation.
+\usepackage[american]{babel}
+
+% Use UTF8 for source text.
+\usepackage[utf8]{inputenc} % another option is [latin1]
+\usepackage[T1]{fontenc}
+
+% Font
+\usepackage{mathptmx}
+\renewcommand*\sfdefault{lmss}
+\renewcommand*\ttdefault{txtt}
+
+\usepackage{microtype}
+
+% You can just remove this package, it simply generates some sample text.
+\usepackage{lipsum}
+
+% LOAD YOUR PACKAGES HERE! (BEFORE THE HYPERREF PACKAGE)
+\usepackage{latexsym,amsmath,amssymb}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{epstopdf} 
+
+% Generally load hyperref last (except if using cleverref for example)
+\usepackage[bookmarks,pagebackref]{hyperref}
+
+% A simple alternative to e.g. the todonotes package.
+\newcommand{\todo}[1]{{\color[rgb]{.5,0,0}\textbf{$\blacktriangleright$#1$\blacktriangleleft$}}}
+
+\title{Something about Computer Science}
+\author{Karsken Bælg}
+\date{\today}
+
+\begin{document}
+
+\pagenumbering{roman} 
+\include{cover}
+
+\frontmatter
+\include{frontmatter}
+
+\cleardoublepage
+%\setcounter{tocdepth}{2}
+\tableofcontents
+\cleardoublepage
+
+\mainmatter
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part I - the overview chapters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\part{Overview}
+\label{part:overview}
+
+\include{intro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part II - the publication chapters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\part{Publications}
+\label{part:publications}
+
+\include{paper1}
+
+\backmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The appendix
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \part{Appendix}
+% \appendix
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% The bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\bibliographystyle{plainnat} 
+\bibliography{bibliography}
+
+\end{document}
